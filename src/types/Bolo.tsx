@@ -1,6 +1,7 @@
 export interface Bolo {
     nome: string;
     id: string | undefined;
+    descricao: string;
     categorias: string[];
     imagens: string[];
     preco: number;

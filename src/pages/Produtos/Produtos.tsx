@@ -12,6 +12,8 @@ import choc_oreo from '../../assets/imgs/choc-oreo.png'
 import { useEffect, useState } from 'react';
 import { getBolos } from '../../services/bolosService';
 import type { Bolo } from '../../types/Bolo';
+import CardProduto from '../../components/CardProduto/CardProduto';
+
 
 
 // funções assimcronas
@@ -73,22 +75,19 @@ export default function Produtos() {
         <section className="cards">
           {
             bolos.map((b: Bolo) => (
-             <div className="card_produto">
-            <img src={`http://localhost:3000/${b.imagens[0]}`} alt="Uma fatia de bolo de chocolate belga" />
-            <h2>{b.nome}</h2>
-            <p></p>
-            <span>{b.preco}</span>
-          </div> 
+              <CardProduto
+               nome={b.nome}
+               descricao={b.descricao}
+               preco={b.preco}
+               imagem={b.imagens[0]} 
+               peso={b.peso}
+              />  
+                
+               
             ))
           }
 
-          <div className="card_produto">
-            <img src={choc_belga} alt="Uma fatia de bolo de chocolate belga" />
-            <h2>Chocolate Belga</h2>
-            <p>Bolo macio de chocolate, aplicado granulado que traz crocância e um sabor irresistível.</p>
-            <span>R$ 80,00/kg.</span>
-          </div>
-
+          
         </section>
       </section>
 
